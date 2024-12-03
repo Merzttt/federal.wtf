@@ -1,1 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEDERAL.WTF</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
 
+        body {
+            background-color: #0a0a0a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(125deg, #000000, #1a1a1a);
+            z-index: -2;
+        }
+
+        .grid {
+            position: fixed;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            transform: perspective(500px) rotateX(60deg);
+            animation: grid-move 15s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes grid-move {
+            0% {
+                transform: perspective(500px) rotateX(60deg) translateY(0);
+            }
+            100% {
+                transform: perspective(500px) rotateX(60deg) translateY(50px);
+            }
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(20, 20, 20, 0.7);
+            padding: 3rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent);
+            animation: scan-line 2s linear infinite;
+        }
+
+        @keyframes scan-line {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100%); }
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: 0.2em;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            animation: glitch 1s infinite;
+        }
+
+        @keyframes glitch {
+            0% {
+                text-shadow: 
+                    -2px -2px 0 #0ff,
+                    2px 2px 0 #f00;
+            }
+            25% {
+                text-shadow: 
+                    2px -2px 0 #0ff,
+                    -2px 2px 0 #f00;
+            }
+            50% {
+                text-shadow: 
+                    -2px 2px 0 #0ff,
+                    2px -2px 0 #f00;
+            }
+            75% {
+                text-shadow: 
+                    2px 2px 0 #0ff,
+                    -2px -2px 0 #f00;
+            }
+            76% {
+                text-shadow: none;
+                transform: translate(0);
+            }
+            77% {
+                text-shadow: 
+                    -2px -2px 0 #0ff,
+                    2px 2px 0 #f00;
+                transform: translate(-2px, 2px);
+            }
+            78% {
+                text-shadow: 
+                    2px 2px 0 #0ff,
+                    -2px -2px 0 #f00;
+                transform: translate(2px, -2px);
+            }
+            79% {
+                text-shadow: none;
+                transform: translate(0);
+            }
+            100% {
+                text-shadow: 
+                    -2px -2px 0 #0ff,
+                    2px 2px 0 #f00;
+            }
+        }
+
+        .discord-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #1a1a1a;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .discord-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .discord-button:hover::before {
+            left: 100%;
+        }
+
+        .discord-button:hover {
+            transform: translateY(-2px);
+            background: #2a2a2a;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="grid"></div>
+    <div class="container">
+        <h1>FEDERAL.WTF</h1>
+        <a href="https://discord.gg/your-invite-link" class="discord-button">
+            Join our Discord
+        </a>
+    </div>
+</body>
+</html>
