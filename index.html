@@ -234,27 +234,5 @@
             Join our Discord
         </a>
     </div>
-
-    <script>
-        function resizeText() {
-            const container = document.querySelector('.title-container');
-            const title = document.querySelector('h1');
-            
-            let fontSize = container.offsetWidth / 8;
-            
-            title.style.fontSize = fontSize + 'px';
-            
-            while ((title.offsetWidth > container.offsetWidth * 0.95) && fontSize > 12) {
-                fontSize--;
-                title.style.fontSize = fontSize + 'px';
-            }
-        }
-
-        window.addEventListener('load', resizeText);
-        
-        window.addEventListener('resize', resizeText);
-        
-        setTimeout(resizeText, 100);
-    </script>
 </body>
 </html>
